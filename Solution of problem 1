@@ -1,0 +1,56 @@
+# This february, you want to give an international gift to someone. But the main problem is that you know nothing about which country produce best product since you dont use the product. Willing to take a gamble, you decided to choose a country name in a fun way.
+
+# The best country is the country with the name containing the greatest number of different alphabet letters. (The country uses the English alphabet from A through Z.)
+
+# For example, the name Nepal has five different alphabet letters: N, E, P,A and L. The name Netherlands has 9 letters N, E, T, H, R, L, A, D, S. If your gift options only consists of these 2 country, Netherlands would be the leader.
+
+# If there is a tie, the country whose name comes earliest in alphabetical order is the leader.
+
+# Given a list of names of the country, can you determine which country's gift will you buy?
+def num_of_alpha(x):
+    b=x.upper()
+    a=list(b)
+    c=set(a)
+    k=len(c)
+    return k
+    
+     
+
+count=0
+location=0
+cases=list()
+b=list()
+n=int(input())
+for i in range(0,n):
+    cn1=int(input())
+    if cn1==0 :
+        break 
+    else:  
+        count=count+1
+        country=list()
+        diffAlpha=list()
+        for i in range(0,cn1):
+            q=str(input())
+            country.append(str(q))
+        for i in range(0,cn1):
+            k=num_of_alpha(country[i])
+            diffAlpha.append(int(k))
+        m=(max(diffAlpha))
+        b=[i for i, j in enumerate(diffAlpha) if j == m]
+        c=len(b)
+        if  c== 1:
+            location=b[0]
+            cases.append(country[location])
+        if c>1:
+            coun=list()
+            coun.append(country[b[i]])
+            b=sorted(coun)
+            cases.append(b[0])
+            
+        
+            
+  for i in range(0,count):
+    a=i+1
+    print("Case #"+str(a)+": "+ cases[i])
+
+  
